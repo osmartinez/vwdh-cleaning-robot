@@ -20,3 +20,11 @@ sealed interface Instruction {
         }
     }
 }
+
+data class InstructionList(val instructions: List<Instruction>){
+    fun run(robot: Robot): Robot = instructions.fold(robot){ acc, instruction -> instruction.run(acc)}
+
+    companion object{
+        fun parse(s: String): InstructionList = InstructionList(s.map { Instruction.parse(it) })
+    }
+}
