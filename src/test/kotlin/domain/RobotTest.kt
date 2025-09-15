@@ -1,6 +1,7 @@
 package domain
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals;
+import kotlin.test.assertFailsWith
 
 
 class RobotTest {
@@ -20,5 +21,10 @@ class RobotTest {
         assertEquals(Position(1,2), robot.position)
     }
 
+    @Test
+    fun `move forward outside floor limits throws`(){
+        val r = Robot(Position(0, 0), Orientation.S, floor)
+        assertFailsWith<DomainException> { r.move() }
+    }
 
 }
