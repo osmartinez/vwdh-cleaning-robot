@@ -9,4 +9,11 @@ enum class Orientation {
         S -> W
         W -> N
     }
+
+    fun anticlockwise(): Orientation = when (this) {
+        N -> W
+        W -> S
+        S -> E
+        E -> N
+    }
 }
