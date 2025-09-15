@@ -15,8 +15,9 @@ class RobotMovedTest {
         val robot1 = robot.move()
         val robot2 = robot1.move()
 
-        val events = robot2.pullDomainEvents()
-        assertTrue(events.size ==2 && events.all { it is RobotMoved && it.robotId == robot2.id })
-        assertTrue(robot2.pullDomainEvents().isEmpty())
+        val (robot3,events) = robot2.pullDomainEvents()
+        assertTrue(events.size ==2 && events.all { it is RobotMoved && it.robotId == robot3.id })
+        val (_,events2) = robot3.pullDomainEvents()
+        assertTrue { events2.isEmpty() }
     }
 }
