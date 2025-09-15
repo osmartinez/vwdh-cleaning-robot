@@ -23,7 +23,7 @@ class InstructionTest {
     }
 
     @Test
-    fun `run multiple instructions to robot`(){
+    fun `run multiple separated instructions to robot`(){
         val robot1 = Robot(Position(0,0), Orientation.N, floor)
         val robot2 = Instruction.M.run(robot1)
         assertEquals(Position(0,1), robot2.position)
@@ -31,4 +31,5 @@ class InstructionTest {
         val robot4 = Instruction.M.run(robot3)
         assertEquals(Position(1,1), robot4.position)
     }
+
 }
