@@ -5,6 +5,8 @@ enum class Orientation {
 
     fun clockwise(): Orientation = when (this) {
         N -> E
-        else -> N
+        E -> S
+        S -> W
+        W -> N
     }
 }
