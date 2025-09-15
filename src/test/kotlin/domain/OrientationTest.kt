@@ -13,4 +13,6 @@ class OrientationTest {
     @Test
     fun `clockwise from W to N`() = assertEquals(Orientation.N, Orientation.W.clockwise())
 
+    @Test
+    fun `anticlockwise from N to W`() = assertEquals(Orientation.W, Orientation.N.anticlockwise())
 }
