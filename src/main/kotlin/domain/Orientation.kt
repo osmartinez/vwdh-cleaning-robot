@@ -1,4 +1,10 @@
 package domain
 
-class Orientation {
+enum class Orientation {
+    N, E, S, W;
+
+    fun clockwise(): Orientation = when (this) {
+        N -> E
+        else -> N
+    }
 }
