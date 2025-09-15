@@ -5,11 +5,12 @@ import domain.InstructionList
 import domain.Orientation
 import domain.Position
 import domain.Robot
+import domain.ports.out.DomainLogger
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Assertions.assertTrue;
 
-private class FakeLogger: DomainLogger{
+private class FakeLogger: DomainLogger {
     val logs = mutableListOf<String>()
     override fun info(log: String) { logs += log}
 }
