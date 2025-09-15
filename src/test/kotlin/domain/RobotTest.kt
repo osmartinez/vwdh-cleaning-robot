@@ -34,4 +34,11 @@ class RobotTest {
         assertThrows<DomainException> { r.move() }
     }
 
+    @Test
+    fun `new generates unique ids`(){
+        val a = RobotId.new()
+        val b = RobotId.new()
+        assertNotEquals(a,b)
+    }
+
 }
