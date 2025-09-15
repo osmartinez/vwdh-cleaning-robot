@@ -14,5 +14,11 @@ class RobotTest {
         assertEquals(Position(1,1), rotatedAgainRobot.position)
     }
 
+    @Test
+    fun `move forward inside floor limits`(){
+        val robot = Robot(Position(1,1,), Orientation.N, floor).move()
+        assertEquals(Position(1,2), robot.position)
+    }
+
 
 }
