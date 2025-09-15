@@ -24,7 +24,7 @@ class InstructionTest {
 
     @Test
     fun `run multiple separated instructions to robot`(){
-        val robot1 = Robot(Position(0,0), Orientation.N, floor)
+        val robot1 = Robot.create(Position(0,0), Orientation.N, floor)
         val robot2 = Instruction.M.run(robot1)
         assertEquals(Position(0,1), robot2.position)
         val robot3 = Instruction.R.run(robot2)
@@ -36,7 +36,7 @@ class InstructionTest {
     fun `run multiple instructions to robot`(){
         val instructionInput = "MRMMRMRMM"
         val instructionList = InstructionList.parse(instructionInput)
-        val robot = Robot(Position(0,0), Orientation.N, floor)
+        val robot = Robot.create(Position(0,0), Orientation.N, floor)
         val robot2 = instructionList.run(robot)
         assertEquals(Position(0,0), robot2.position)
     }
