@@ -23,7 +23,7 @@ object CliParser {
             val posParts = robotsData[i].split(" ").filter{it.isNotEmpty()}
             require(posParts.size == 3) { "Invalid robot position input" }
             val (xstr, ystr, ostr) = posParts
-            val robot = Robot(Position(xstr.toInt(), ystr.toInt()), Orientation.valueOf(ostr), floor)
+            val robot = Robot.create(Position(xstr.toInt(), ystr.toInt()), Orientation.valueOf(ostr), floor)
             val instructions = InstructionList.parse(robotsData[i+1])
             robots+= RobotInitialStateInput(robot, instructions)
         }
