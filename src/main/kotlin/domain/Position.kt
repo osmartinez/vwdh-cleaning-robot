@@ -1,6 +1,13 @@
 package domain
 
+import domain.exceptions.DomainException
+
 data class Position (val x: Int, val y: Int) {
+    init {
+        if (x < 0 || y < 0) {
+            throw DomainException("Invalid position: ($x,$y)")
+        }
+    }
 
     fun forward(orientation: Orientation) = when (orientation) {
         Orientation.N -> copy(y = y + 1)
