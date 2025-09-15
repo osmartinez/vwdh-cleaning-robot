@@ -12,10 +12,11 @@ class RobotMovedTest {
     @Test
     fun `move produces events with source robot id`() {
         val robot = Robot.create(Position(0, 0), Orientation.N, floor)
-        robot.move()
+        val robot1 = robot.move()
+        val robot2 = robot1.move()
 
-        val events = robot.pullDomainEvents()
-        assertTrue(events.any { it is RobotMoved && it.robotId == robot.id })
-        assertTrue(robot.pullDomainEvents().isEmpty())
+        val events = robot2.pullDomainEvents()
+        assertTrue(events.size ==2 && events.all { it is RobotMoved && it.robotId == robot2.id })
+        assertTrue(robot2.pullDomainEvents().isEmpty())
     }
 }
