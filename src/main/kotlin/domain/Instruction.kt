@@ -4,9 +4,13 @@ import domain.exceptions.DomainException
 
 sealed interface Instruction {
 
-    data object L: Instruction
-    data object R: Instruction
-    data object M: Instruction
+    fun run(robot: Robot): Robot
+
+
+    data object L: Instruction { override fun run(robot: Robot) = robot.rotateAnticlockwise()}
+    data object R: Instruction { override fun run(robot: Robot) = robot.rotateClockwise()}
+    data object M: Instruction { override fun run(robot: Robot) = robot.move()}
+
     companion object{
         fun parse(c: Char): Instruction = when(c){
             'L' -> L
