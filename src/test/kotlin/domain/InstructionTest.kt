@@ -32,4 +32,12 @@ class InstructionTest {
         assertEquals(Position(1,1), robot4.position)
     }
 
+    @Test
+    fun `run multiple instructions to robot`(){
+        val instructionInput = "MRMMRMRMM"
+        val instructionList = InstructionList.parse(instructionInput)
+        val robot = Robot(Position(0,0), Orientation.N, floor)
+        val robot2 = instructionList.run(robot)
+        assertEquals(Position(0,0), robot2.position)
+    }
 }
