@@ -6,6 +6,7 @@ import domain.Orientation
 import domain.Position
 import domain.Robot
 import domain.ports.out.DomainLogger
+import domain.ports.out.RobotStateRepository
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,7 +16,7 @@ private class FakeLogger: DomainLogger {
     override fun info(log: String) { logs += log}
 }
 
-private class FakeRepository: RobotStateRepository{
+private class FakeRepository: RobotStateRepository {
     val states = mutableListOf<Robot>()
     override fun save(robot: Robot) { states+= robot}
     override fun history(): List<Robot> = states.toList()
@@ -29,7 +30,7 @@ class RunInstructionsToRobotTest {
         val logger = FakeLogger()
         val repository = FakeRepository()
 
-        val useCase = RunInstructionsToRobot(repo, logger)
+        val useCase = RunInstructionsToRobot(repository, logger)
         val floor = Floor(5, 5)
         val robot = Robot(Position(3, 3), Orientation.E, floor)
         val instructionList = InstructionList.parse("MMRMMRMRRM")
