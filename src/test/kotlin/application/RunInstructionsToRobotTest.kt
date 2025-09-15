@@ -14,7 +14,7 @@ class RunInstructionsToRobotTest {
     fun `run instructions to robot`() {
         val useCase = RunInstructionsToRobot()
         val floor = Floor(5, 5)
-        val robot = Robot(Position(0, 0), Orientation.N, floor)
+        val robot = Robot(Position(3, 3), Orientation.E, floor)
         val instructionList = InstructionList.parse("MMRMMRMRRM")
         val robot1 = useCase.runRobot(floor, robot, instructionList)
         assertEquals(robot1.position, Position(5,1))
