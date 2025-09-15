@@ -1,6 +1,7 @@
 package domain
 
 import domain.exceptions.DomainException
+import java.util.UUID
 
 data class Robot (val position: Position, val orientation: Orientation, val floor: Floor){
     override fun toString(): String {
@@ -12,5 +13,13 @@ data class Robot (val position: Position, val orientation: Orientation, val floo
         val next = position.forward(orientation)
         if(!floor.contains(next)) throw DomainException("Robot is trying to move outside the floor")
         return copy(position = next)
+    }
+}
+
+@JvmInline
+value class RobotId(val value: UUID) {
+    override fun toString(): String = value.toString()
+    companion object {
+        fun new(): RobotId = RobotId(UUID.randomUUID())
     }
 }
