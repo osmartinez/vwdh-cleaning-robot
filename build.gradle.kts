@@ -19,3 +19,11 @@ tasks.test {
 kotlin {
     jvmToolchain(21)
 }
+
+tasks.register<JavaExec>("runCli") {
+    group = "application"
+    description = "Run CLI"
+    mainClass.set("infrastructure.adapters.in.cli.CliKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    standardInput = System.`in`
+}
