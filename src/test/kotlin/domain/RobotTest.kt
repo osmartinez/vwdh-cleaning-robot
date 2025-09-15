@@ -8,7 +8,7 @@ class RobotTest {
 
     @Test
     fun `rotations do not affect position`() {
-        val robot = Robot(Position(1, 1), Orientation.N)
+        val robot = Robot(Position(1, 1), Orientation.N, floor)
         val rotatedRobot = robot.rotateClockwise()
         val rotatedAgainRobot = rotatedRobot.rotateAnticlockwise()
         assertEquals(Position(1,1), rotatedAgainRobot.position)
