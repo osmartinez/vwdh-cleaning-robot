@@ -28,4 +28,10 @@ class RobotTest {
         assertFailsWith<DomainException> { r.move() }
     }
 
+    @Test
+    fun `move forward outside N floor limits throws`(){
+        val r = Robot(Position(0, floor.height), Orientation.N, floor)
+        assertFailsWith<DomainException> { r.move() }
+    }
+
 }
