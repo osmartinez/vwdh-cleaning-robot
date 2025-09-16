@@ -19,8 +19,10 @@ This project implements a simple "cleaning robot" in Kotlin using Test-Driven De
 
 - **Technology Stack**: Kotlin + Gradle + JDK 21
 - **Methodology**: TDD first
-- **Architecture**: DDD with entities, value objects, domain events, and domain exceptions
+- **Architecture**: DDD with entities, value objects, domain events, and domain exceptions. The project structure could have been partitioned by modules, each containing its own application, domain, and infrastructure layers. However, since this is a small problem, I decided to structure it from the outside in, using application, domain, and infrastructure as the main folders.
 - **Pattern**: Hexagonal architecture
+
+Disclaimer: This project is not intended to be feature-complete. The goal is to demonstrate development and design techniques rather than to deliver a complete application with many functionalities.
 
 ## Repository Structure
 
